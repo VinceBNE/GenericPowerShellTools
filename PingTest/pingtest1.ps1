@@ -10,7 +10,7 @@ $pinginterval = 2
 
 Do {
 
-Import-Csv $inputfile | foreach {
+Import-Csv $inputfile | ForEach-Object {
 
     $Ping = Test-Connection -Count 1 -ComputerName $_.hostname
     ForEach ($Result in $Ping) {
@@ -27,7 +27,7 @@ Import-Csv $inputfile | foreach {
 
 $actualrun++
 
-Sleep($pinginterval)
+Start-Sleep ($pinginterval)
 Clear-Host
 Write-Host "Task is running - task number $actualrun - next ping test will start in $pinginterval seconds"
 Write-Host ""
