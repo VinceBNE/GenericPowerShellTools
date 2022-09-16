@@ -6,6 +6,7 @@
 
 $maxrun = 20000
 $actualrun = 0
+$pinginterval = 2
 
 Do {
 
@@ -26,9 +27,9 @@ Import-Csv $inputfile | foreach {
 
 $actualrun++
 
-Sleep(1)
+Sleep($pinginterval)
 Clear-Host
-Write-Host "Task is running - task number $actualrun"
+Write-Host "Task is running - task number $actualrun - next ping test will start in $pinginterval seconds"
 Write-Host ""
 
 
